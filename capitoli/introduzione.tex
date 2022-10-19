@@ -3,9 +3,24 @@
 \chapter{Introduzione}
 \markboth{Introduzione}{}
 % [titolo ridotto se non ci dovesse stare] {titolo completo}
-
+ 
 \section{Motivazioni e Obiettivi} %\label{1sec:scopo}
+I recenti progressi nelle tecnologie hardware e di comunicazione, soprattutto lo sviluppo delle architetture su infrastruttura Cloud e del Machine Learning, stanno stravolgendo il modo di interagire tra macchina e uomo. Questo non solo avviene nell'ambito sociale e quindi a scopo di aiutare l'utente finale, ma anche e soprattutto nell'aiuto allo sviluppatore stesso che crea queste tecnologie.
 
+I campi di ricerca del machine learning come il Deep Learning stanno cambiando in modo marcato e velocemente lo scenario con il quale gli sviluppatori si trovano ad interagire. Se prima gli IDE\footnote{Integrated Development Enviromen, ovvero un ambiente di sviluppo software che racchiude in un unica interfaccia grafica tutte le funzionalità necessarie alla creazione di codice per svariati linguaggi di programmazione.} erano semplici editor di testo corredati con qualche aiuto al programmatore, come la semplificazione del debug del codice, la compilazione e scrittura, oggi, anche grazie al machine learning, stanno diventando sempre più un partner indispensabile per lo sviluppo rapido e per diminuire il time-to-market e i bug nel software.
+
+Lo scopo di questa tesi è quello di esplorare queste tecnologie e apprenderne le capacità con il fine di sviluppare un conversational agent per lo smart development che aiuta lo sviluppatore ad ottenere, tramite l'utilizzo di un modello di intelligenza artificiale e dato un input da parte dello sviluppatore, in output il blocco di codice relativo all'input.
+Tale software permetterà allo sviluppatore di accedere in maniera quasi del tutto immediata ad una vasta quantità di funzioni.
 \section{Risultati}
+Lo sviluppo del conversational agent Yumi, ha portato alla creazione di un ottimo tool su cui poter lavorare ulteriormente in studi futuri per poter migliorare la sua implementazione. Si è evidenziato come, nonostante il mancato utilizzo dei modelli di linguaggio di dimensione più grande, come per l'appunto il già rinomato GPT-3, gli output di Yumi sono comunque utilizzabili per lo sviluppo di un'estensione per IDE. Uno svantaggio di avere un tool che non utilizza il training per la creazione del modello, ma la cosine similarity per la ricerca intelligente del codice in output, è quello di avere una velocità minore in caso di dataset di grandi dimensioni fino ad arrivare anche all'impossibilità di utilizzarlo in dataset che superano il milione di righe. Questo è derivato dal fatto che il dataset va comunque caricato tutto in memoria sul server che lo utilizza per poterne confrontare la similiarità del commento inserito con il codice trovato. Il vantaggio è per l'appunto quello di poter utilizzare questo tool con dataset più piccoli e direttamente in locale senza dover appoggiare ad architetture che espongono API dietro le quali lavorano anche multipli calcolatori con alte prestazioni. Il tool può essere riadattato a qualsiasi contesto e non obbligatoriamente utilizzato al contesto del program synthesis in quanto anche in uno scenario in cui vi è bisogno della ricerca di similiarità di testo all'interno di documenti, può essere di grande aiuto e facilmente riadattabile grazie agli strumenti di sviluppo utilizzati. Sia il client che il server sono disponibili pubblicamente sulla repository GitHub al link \texttt{https://github.com/exSnake/yumi}.
+
 
 \section{Struttura della tesi}
+Il seguente lavoro di tesi è incentrato sullo sviluppo di un Conversational Agent per l'aiuto agli sviluppatori nella generazione di codice.
+
+Nel capitolo 2 verrà mostrato lo stato dell'arte dello sviluppo dei modelli di Machine Learning attualmente in uso. In particolare si parlerà dell'anatomia di un Conversational Agent e l'utilizzo degli stessi nello smart development e di come essi stanno cambiando il modo di interagire con gli ambienti di sviluppo.
+
+Verranno descritti i Dataset che sono al momento presenti, i quali vengono utilizzati per la creazione, il training e il testing di questi modelli, ovvero per valutarne la loro efficacia. Verranno illustrati i modelli di machine learning già presenti, utilizzati per la creazione di Bot già esistenti come GitHub Copilot\footnote{Sviluppato da Github, utilizza OpenAI Codex per suggerire intere funzioni in real-time direttamente dall'IDE \url{https://github.com/features/copilot}}, Tabnine\footnote{Sviluppato da Tabnine, si integra perfettamente con molti linguaggi nell'aiuto al completamento del testo https://www.tabnine.com/}, InCoder\footnote{Descritto nel capitolo \ref{sssec:num1}}, ecc.
+Verrà fatta una panoramica generale su come sono stati generati e quale è il loro ruolo nell'odierno panorama informatico.
+Nel capitolo 3 è illustrato lo sviluppo di YUMI, un conversational agent che permette di ricevere, dato un input, in output il blocco di codice.
+Verrà mostrato il processo di creazione del dataset, le scelte architetturali prese e i risultati ottenuti da esse.

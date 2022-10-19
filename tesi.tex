@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PREAMBOLO DEL DOCUMENTO %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[a4paper,11pt,oneside,top=3cm,bottom=3cm,left=3.5cm,right=3.5cm,openright,reqno,table]{book}
@@ -37,7 +37,8 @@
 \include{frontmatter/ringraziamenti}
 % SOMMARIO %
 \cleardoublepage
-\include{frontmatter/sommario}
+\renewcommand{\abstractname}{Abstract}
+\include{frontmatter/abstract}
 % INDICI %
 \include{frontmatter/indici}
 % GLOSSARIO
@@ -74,4 +75,6 @@
 
 \backmatter
 \include{backmatter/ringraziamenti}
+\bibliography{bibliografia.bib}
+\bibliographystyle{IEEEtran}
 \end{document}
